@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Check-in Easy!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/vue@next"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+
+   
+   <body>
+   <div id="app">
+        <h2>Get All Movies</h2>
+        <button @click="getAllMovies()" class="btn btn-success">All Movies Here!</button>
+        <ul v-if="movies.length">
+            <li v-for="duathlete in duathletes">
+                {{movie.movieid}} {{movie.MovieName}} {{movie.LengthInMinutes}} {{movie.CountryOfOrigin}}
+            </li>
+        </ul>
+        <div v-else>
+            No movies ;(
+        </div>
+        <h2>Get Movie By Id</h2>
+        <input v-model="movieid" placeholder="Input the id for the movie you wanna find!" type="number"/>
+        <button @click="getMovieById(movieid)" class="btn btn-info">Get by id here now!</button>
+        <div v-if="moviesid">
+            {{moviesid.movieid}} {{movieid.MovieName}} {{movie.LengthInMinutes}} {{movie.CountryOfOrigin}}
+        </div>
+        <div v-else>
+            No movies with that id!
+        </div>
+        <h2>Add Movie</h2>
+        <input v-model="addMove.MovieName" placeholder="Movie name" type="text"/>
+        <input v-model="addMove.LengthInMinutes" placeholder="Movies length in minutes" type="number"/>
+        <input v-model="addMove.CountryOfOrigin" placeholder="Country of origin" type="text"/>
+        <button @click="postMovie()" class="btn btn-sucess">Add Movie Here!</button>
+        <div>{{createdmsg}}</div>
+   </div>
+   
+</body>
+
+</html>
